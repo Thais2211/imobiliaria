@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Properties:</strong>
+  <%= @property_attachment.properties %>
+</p>
+
+<p>
+  <strong>Photo:</strong>
+  <%= @property_attachment.photo %>
+</p>
+
+<%= link_to 'Edit', edit_property_attachment_path(@property_attachment) %> |
+<%= link_to 'Back', property_attachments_path %>
