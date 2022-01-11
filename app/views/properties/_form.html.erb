@@ -12,18 +12,21 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :name %>
+    <%= form.label :name, "Nome" %>
     <%= form.text_field :name %>
   </div>
-
+  <br/>
   <%= form.fields_for :property_attachments do |p| %>
      <div class="field">
-       <%= p.label :photo %><br>
+       <%= p.label :photo, "Fotos" %> <br/>
        <%= p.file_field :photo, :multiple => true, name: "property_attachments[photo][]" %>
      </div>
    <% end %>
+   
+  <br/><br/>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="actions ">
+  <%= link_to 'Back', properties_path, class:"btn btn-secondary" %>
+    <%= form.submit 'Salvar', :class => 'btn btn-primary' %>
   </div>
 <% end %>

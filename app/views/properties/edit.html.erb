@@ -1,6 +1,8 @@
-<h1>Editing Property</h1>
+<div class="card o-hidden border-0 shadow-lg my-3">
+  <div class="card-body">
+    <h1>Editar propriedade</h1>
+    <br/>
+    <%= render 'form', property: @property %>
+  </div>
+</div>
 
-<%= render 'form', property: @property %>
-
-<%= link_to 'Show', @property %> |
-<%= link_to 'Back', properties_path %>

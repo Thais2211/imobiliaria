@@ -1,5 +1,33 @@
 <p id="notice"><%= notice %></p>
 
+<div class="card o-hidden border-0 shadow-lg my-3">
+  <div class="p-3">
+    <div class="d-sm-flex align-items-center mb-4">
+      <%= link_to new_property_path, :class => "ml-1 d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" do %>
+        <i class="fas fa-plus-square"></i>Nova propriedade
+      <% end %>
+    </div>          
+  </div>
+
+  <div class="row mr-1 ml-1">
+    <% @properties.each do |property| %>
+      <div class="col-lg-4">
+        <div class="card">
+          
+          <img class="card-img-top" src="..." alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title"><%= property.name %></h5>
+            <%= link_to 'Editar', edit_property_path(property), class:"btn btn-primary" %> 
+            <%= link_to 'Show', property, class:"btn btn-success" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
+
 <h1>Properties</h1>
 
 <table>
@@ -25,3 +53,14 @@
 <br>
 
 <%= link_to 'New Property', new_property_path %>
+<style>
+  .h-38{ 
+    height: 38px !important;
+  }
+  .w-80{
+    width: 80%
+  }
+  .pd-10{
+    padding-left: 10px
+  }
+</style>
