@@ -4,7 +4,6 @@ class PropertiesController < ApplicationController
   # GET /properties or /properties.json
   def index
     @properties = Property.all
-    
   end
 
   # GET /properties/1 or /properties/1.json
@@ -20,6 +19,7 @@ class PropertiesController < ApplicationController
 
   # GET /properties/1/edit
   def edit
+    @property_attachments = @property.property_attachments.build
   end
 
   # POST /properties or /properties.json
@@ -28,8 +28,10 @@ class PropertiesController < ApplicationController
 
     respond_to do |format|
       if @property.save
-        params[:property_attachments]['photo'].each do |a|          
-          @property_attachment = @property.property_attachments.create!(photo: a)
+        if params[:property_attachments].present?
+          params[:property_attachments]['photo'].each do |a|          
+            @property_attachment = @property.property_attachments.create!(photo: a)
+          end
         end
 
         format.html { redirect_to property_url(@property), notice: "Property was successfully created." }
